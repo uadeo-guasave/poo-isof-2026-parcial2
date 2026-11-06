@@ -12,4 +12,4 @@ var secreSoporte = new PersonalDeSoporte { Nombres = "Judith", Apellidos = "X", 
 
 var formateador = new PersonalDeSoporte { Nombres = "El", Apellidos = "Que Te Atendió a Martín", Puesto = "Experto en formatear", TareasPrincipales = "Perder información del usuario y formatear para remediar" };
 
-AnsiConsole.Write(new FigletText("Ahi nomás").Color(Color.DarkRed));
+AnsiConsole.Write(new FigletText("Hola, Mundo!").Color(Color.DarkRed));
