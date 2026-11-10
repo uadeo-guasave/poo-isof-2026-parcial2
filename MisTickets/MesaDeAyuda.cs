@@ -11,7 +11,8 @@ public class MesaDeAyuda
         ticket.FechaDeSolicitud = DateTime.Now;
         tickets.Add(ticket);
         siguienteId++;
-    
+    }
+
     public void Cerrar(int id, PersonalDeSoporte atendio, string resultado)
     {
         var ticket = tickets.Find(t => t.Id == id);
@@ -29,6 +30,15 @@ public class MesaDeAyuda
 
     public List<Ticket> ObtenerTodos()
     {
-        // TODO: aqui nos quedamos
+        var todos = new List<Ticket>();
+        todos.AddRange(tickets.ToList());
+        return todos;
+    }
+
+    public List<Ticket> ObtenerPendientes()
+    {
+        // var pendientes = new List<Ticket>();
+        return tickets.Where(t => !t.EstaCerrado).ToList();
+        // SELECT * FROM tickets WHERE EstaCerrado==false;
     }
 }
