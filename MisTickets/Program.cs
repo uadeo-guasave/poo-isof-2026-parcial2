@@ -1,7 +1,4 @@
 ﻿using MisTickets;
-using Spectre.Console;
-
-Console.WriteLine("Hola, Mundo!");
 
 // var persona1 = new Persona();
 // ERROR: no se pueden crear instancias de una clase abstracta
@@ -12,17 +9,16 @@ var secreSoporte = new PersonalDeSoporte { Nombres = "Judith", Apellidos = "X", 
 
 var formateador = new PersonalDeSoporte { Nombres = "El", Apellidos = "Que Te Atendió a Martín", Puesto = "Experto en formatear", TareasPrincipales = "Perder información del usuario y formatear para remediar" };
 
-AnsiConsole.Write(new FigletText("Hola, Mundo!").Color(Color.DarkRed));
+var empleado2 = new Empleado { Nombres = "Ana", Apellidos = "López", Departamento = "Contabilidad" };
 
-// Paso 2 - Pruebas
 var mesa = new MesaDeAyuda();
+mesa.Registrar(new Ticket { Solicitante = empleado1, Descripción = "La impresora no imprime", Registró = secreSoporte });
+mesa.Registrar(new Ticket { Solicitante = empleado2, Descripción = "No enciende la computadora", Registró = secreSoporte });
+mesa.Registrar(new Ticket { Solicitante = empleado1, Descripción = "Olvidé mi contraseña [urgente]", Registró = secreSoporte });
 
-var ticket1 = new Ticket
-{
-    Registró = secreSoporte,
-    Solicitante = empleado1,
-    Descripción = "Ayuda, instalé fortnite pirata y se reinició mi compu y ya no entra a windows"
-};
+mesa.Cerrar(2, formateador, "Se formateó el equipo");
 
-mesa.Registrar(ticket1);
-AnsiConsole.Write(mesa.ObtenerTodos().Count);
+var vista = new VistaDeTickets();
+vista.MostrarEncabezado();
+vista.MostrarTabla("Todos los tickets", mesa.ObtenerTodos());
+vista.MostrarTabla("Tickets pendientes", mesa.ObtenerPendientes());
