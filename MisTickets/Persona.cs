@@ -9,4 +9,10 @@ public abstract class Persona
     {
         return $"{Nombres} {Apellidos}";
     }
+
+    public Persona(string nombres, string apellidos)
+    {
+        Nombres = nombres;
+        Apellidos = apellidos;
+    }
 }
