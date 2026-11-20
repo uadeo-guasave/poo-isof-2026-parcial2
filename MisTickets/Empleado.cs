@@ -6,6 +6,9 @@ public class Empleado : Persona
 
     public Empleado(string nombres, string apellidos, string departamento) : base(nombres, apellidos)
     {
-        Departamento = departamento;
+        if (string.IsNullOrWhiteSpace(departamento))
+            Departamento = "Sin departamento";
+        else
+            Departamento = departamento;
     }
 }

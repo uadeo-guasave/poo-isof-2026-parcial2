@@ -6,9 +6,9 @@
 // var empleado1 = new Empleado { Nombres = "Manuel", Apellidos = "Pon Atención", Departamento = "Ignoro La Clase" };
 var empleado1 = new Empleado("Manuel", "Pon Atención", "Ignoro La Clase");
 
-var secreSoporte = new PersonalDeSoporte { Nombres = "Judith", Apellidos = "X", Puesto = "Secretaria", TareasPrincipales = "Registrar solicitudes de apoyo en soporte técnico" };
+var secreSoporte = new PersonalDeSoporte("Judith", "X", "Secretaria", "Registrar solicitudes de apoyo en soporte técnico");
 
-var formateador = new PersonalDeSoporte { Nombres = "El", Apellidos = "Que Te Atendió a Martín", Puesto = "Experto en formatear", TareasPrincipales = "Perder información del usuario y formatear para remediar" };
+var formateador = new PersonalDeSoporte("El", "Que Te Atendió a Martín", "Experto en formatear", "Perder información del usuario y formatear para remediar");
 
 var empleado2 = new Empleado("Ana", "López", "Contabilidad");
 
@@ -23,3 +23,6 @@ var vista = new VistaDeTickets();
 vista.MostrarEncabezado();
 vista.MostrarTabla("Todos los tickets", mesa.ObtenerTodos());
 vista.MostrarTabla("Tickets pendientes", mesa.ObtenerPendientes());
+
+var empleado3 = new Empleado("Pedro", "Gómez", "");
+Console.WriteLine(empleado3.Departamento); // Sin departamento
